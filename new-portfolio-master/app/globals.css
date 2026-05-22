@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #07090f;
+  overflow-x: hidden;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-glow {
+  position: absolute;
+  right: 6%;
+  top: 18%;
+  width: 500px;
+  height: 500px;
+  border-radius: 999px;
+  background: rgba(44, 95, 255, 0.22);
+  filter: blur(140px);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: clamp(4rem, 6vw, 6.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.section-title {
+  font-size: clamp(2.8rem, 4vw, 4.5rem);
+  line-height: 1;
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+
+.hero-intro-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonial-row {
+  width: max-content;
+  animation: testimonial-left 60s linear infinite;
+}
+
+.testimonial-row-reverse {
+  width: max-content;
+  animation: testimonial-right 60s linear infinite;
+}
+
+.testimonial-row:hover,
+.testimonial-row-reverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes testimonial-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes testimonial-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.exp-char {
+  display: inline-block;
+  transform-origin: bottom center;
+}
